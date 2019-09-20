@@ -21,5 +21,10 @@ int main(int argc, char **argv)
     std::string json;
     // m4gfx::summary_manager::Instance()->GetSystemInformationSummary().get_data_as_string();
     std::cout <<m4gfx::summary_manager::Instance()->GetSystemInformationSummary().get_data_as_string() << std::endl;
+
+	//d::set<std::string> fields();
+	for (auto field : m4gfx::summary_manager::Instance()->GetSystemInformationSummary().get_fields()) {
+		std::cout << field << std::endl;
+	}
 	return 0;
 }

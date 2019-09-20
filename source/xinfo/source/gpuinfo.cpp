@@ -69,12 +69,16 @@ void m4gfx::typed_info_provider<m4gfx::XIC_GPU>::build() {
 
     rapidjson::Value gl_renderer_value(gl_renderer, allocator);
     d.AddMember("renderer",gl_renderer_value,allocator);
+	info.add_attribute("/renderer");
     rapidjson::Value gl_vendor_value(gl_vendor, allocator);
     d.AddMember("vendor",gl_vendor_value,allocator);
+	info.add_attribute("/vendor");
     rapidjson::Value gl_version_value(gl_version, allocator);
     d.AddMember("version",gl_version_value,allocator);
+	info.add_attribute("/version");
     rapidjson::Value gl_sl_value(gl_sl, allocator);
     d.AddMember("shadinglanguage",gl_sl_value,allocator);
+	info.add_attribute("/shadinglanguage");
     
     glew::clear_document();
     glew::glewInfo();
@@ -94,8 +98,9 @@ void m4gfx::typed_info_provider<m4gfx::XIC_GPU>::build() {
     std::string namespace_prefix(glew::get_namespace_prefix());
     rapidjson::Value gl_namespace_prefix(namespace_prefix, allocator);
     d.AddMember(gl_namespace_prefix,features, allocator);
-    info.add_attribute(namespace_prefix);          
+    info.add_attribute(std::string(JSON_PATH_SEPARATOR) + namespace_prefix);
     info.insert_json(d);
+	info.add_attribute(glew::get_attributes());
     info.set_type(m4gfx::XIC_GPU);
 }
 

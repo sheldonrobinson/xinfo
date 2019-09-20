@@ -53,16 +53,24 @@ public:
 	const void add_attribute(std::string attr){
         _attrs.insert(attr);
     }
+
+	const void add_attribute(const std::set<std::string>& attrs) {
+		_attrs.insert(attrs.cbegin(), attrs.cend());
+	}
     
 	const void insert_json(const rapidjson::Document& d);
     
-	const void insert_info(std::string info_path, const x_info&  data);
+	const void insert_info(const std::string info_path, const x_info&  data);
     
-	rapidjson::Document& get_data() {
+	const rapidjson::Document& get_data() const {
         return xis_info;
     }
+
+	const std::set<std::string> get_fields() const  {
+		return _attrs;
+	}
     
-	std::string get_data_as_string() const;
+	const std::string get_data_as_string() const;
     
 private:
     m4gfx::XINFOCLASS _type;

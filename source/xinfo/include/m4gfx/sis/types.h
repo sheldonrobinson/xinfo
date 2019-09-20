@@ -2,8 +2,20 @@
 #define XINFO_TYPES_H_
 
 #include <string>
-namespace m4gfx
-{
+
+#if defined(__cplusplus)
+#define XINFO_M4GFX_START_CPP_NAMESPACE \
+  namespace m4gfx {               \
+  extern "C" {
+#define XINFO_M4GFX_END_CPP_NAMESPACE \
+  }                            \
+  }
+#else
+#define GLEW_START_CPP_NAMESPACE
+#define GLEW_END_CPP_NAMESPACE
+#endif
+
+XINFO_M4GFX_START_CPP_NAMESPACE
 
 enum XINFOCLASS {
     XIC_NONE = 0,
@@ -53,5 +65,5 @@ enum ENV_ROLE {
 static const char* kTypeNames[] = 
     { "Null", "False", "True", "Object", "Array", "String", "Number" };
 
-}
+XINFO_M4GFX_END_CPP_NAMESPACE
 #endif //XINFO_TYPES_H_

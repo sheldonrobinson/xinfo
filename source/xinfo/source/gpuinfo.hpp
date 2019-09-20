@@ -95,6 +95,11 @@ static std::string section_name;
 static void get_document(rapidjson::Document& json){
     json.CopyFrom(glewinfo_json,json.GetAllocator());
 }
+
+static const std::set<std::string> get_attributes() {
+	return glewinfo_extensions_list;
+}
+
 /*
 static void set_namespace_prefix(const std::string prefix){
     namespace_prefix=prefix;

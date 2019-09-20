@@ -19,4 +19,6 @@
 
 #endif
 
+#pragma warning (default : 4668)
+
 #endif

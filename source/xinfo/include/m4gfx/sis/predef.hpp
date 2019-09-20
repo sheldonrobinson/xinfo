@@ -1,6 +1,8 @@
 #ifndef X_INFO_TYPEDEFS_HPP
 #define X_INFO_TYPEDEFS_HPP
 
+#include <xinfo/xinfo_api.h>
+
 #define GLEW_STATIC 1
 
 #define RAPIDJSON_HAS_STDSTRING 1

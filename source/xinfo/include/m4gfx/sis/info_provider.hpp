@@ -11,7 +11,6 @@
 namespace m4gfx
 {
 
- 
 class info_provider
 {
 protected:
@@ -95,6 +94,7 @@ public:
         _type = obj._type;
         info = obj.info;
         dirty = obj.dirty;
+		return *this;
     }   
     
     virtual void build();

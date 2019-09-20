@@ -55,7 +55,7 @@ const void m4gfx::x_info::insert_info(std::string info_path, const x_info&  data
     //std::cout<<"end: m4gfx::x_info::insert_info(std::string info_path, const x_info&  data)"<<std::endl;
 }
 
-std::string m4gfx::x_info::get_data_as_string() const {
+const std::string m4gfx::x_info::get_data_as_string() const {
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     xis_info.Accept(writer);
