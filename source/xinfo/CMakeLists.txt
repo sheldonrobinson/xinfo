@@ -1,21 +1,3 @@
-message("CMAKE_MODULE_PATH=${CMAKE_MODULE_PATH}")
-
-set(CpuFeatures_DIR ${USRLOCAL_DIR}/CpuFeatures/lib/cmake/CpuFeatures)
-set(RapidJSON_DIR ${USRLOCAL_DIR}/RapidJSON/cmake)
-set(GLEW_ROOT ${USRLOCAL_DIR}/glew)
-set(GLEW_USE_STATIC_LIBS TRUE)
-set(BOOST_ROOT C:/local/boost/1_71_0)
-set(Boost_DIR C:/local/boost/1_71_0/tools/boost_install)
-# 
-# External dependencies
-# 
-find_package(CpuFeatures REQUIRED)
-find_package(OpenGL REQUIRED)
-find_package(GLEW REQUIRED)
-find_package(RapidJSON REQUIRED)
-find_package(Boost 1.59 REQUIRED)
-
-
 # 
 # Library name and options
 # 
@@ -135,14 +117,14 @@ set_target_properties(${target}
 
 target_include_directories(${target}
     PRIVATE
-    ${PROJECT_BINARY_DIR}/source/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_BINARY_DIR}/include
-	${RapidJSON_INCLUDE_DIRS}
-	${Boost_INCLUDE_DIR}
-	${GLEW_INCLUDE_DIR}
+       ${PROJECT_BINARY_DIR}/source/include
+       ${CMAKE_CURRENT_SOURCE_DIR}/include
+       ${CMAKE_CURRENT_BINARY_DIR}/include
+       ${RapidJSON_INCLUDE_DIRS}
+       ${Boost_INCLUDE_DIR}
+       ${GLEW_INCLUDE_DIR}
     PUBLIC
-    ${DEFAULT_INCLUDE_DIRECTORIES}
+       ${DEFAULT_INCLUDE_DIRECTORIES}
 
     INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -160,11 +142,10 @@ target_link_libraries(${target}
 	${GLEW_LIBRARY}
 	${OPENGL_gl_LIBRARY}
     PUBLIC
-    ${DEFAULT_LIBRARIES}
+        ${DEFAULT_LIBRARIES}
 
     INTERFACE
 )
-
 
 # 
 # Compile definitions

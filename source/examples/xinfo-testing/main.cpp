@@ -18,8 +18,7 @@ int main(int argc, char **argv)
     //summary_manager::Instance()::GetSystemInformationSummary();
     //boost::property_tree::json_parser::write_json(ss, m4gfx::summary_manager::Instance()->GetSystemInformationSummary().get_data());
 
-    std::string json;
-    // m4gfx::summary_manager::Instance()->GetSystemInformationSummary().get_data_as_string();
+    //std::string json;
     std::cout <<m4gfx::summary_manager::Instance()->GetSystemInformationSummary().get_data_as_string() << std::endl;
 
 	//d::set<std::string> fields();

@@ -6,6 +6,10 @@
 # find_package(THIRDPARTY REQUIRED)
 find_package(RapidJSON REQUIRED)
 
+if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+find_package(X11 REQUIRED)
+endif()
+
 # 
 # Executable name and options
 # 
@@ -59,7 +63,7 @@ target_include_directories(${target}
     PRIVATE
     ${DEFAULT_INCLUDE_DIRECTORIES}
     ${PROJECT_BINARY_DIR}/source/include
-	${RapidJSON_INCLUDE_DIRS}
+    ${RapidJSON_INCLUDE_DIRS}
 )
 
 
@@ -102,6 +106,13 @@ target_link_libraries(${target}
     PRIVATE
     ${DEFAULT_LINKER_OPTIONS}
 )
+
+if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+target_link_libraries(${target}
+    PRIVATE
+    ${X11_LIBRARIES} -lGL -lGLX -lGLdispatch -lXdmcp -lXau -lxcb -lbsd -ldl -lrt 
+)
+endif()
 
 
 #

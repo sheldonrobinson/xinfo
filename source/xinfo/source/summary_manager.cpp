@@ -1,4 +1,5 @@
 #include <cstdlib> // NULL
+
 #include "m4gfx/sis/predef.hpp"
 #include "m4gfx/sis/info_provider.hpp"
 #include "m4gfx/sis/summary_manager.hpp"
@@ -32,7 +33,6 @@ void m4gfx::summary_manager::Release()
 }
 
 void m4gfx::summary_manager::setup(){
-
     m4gfx::typed_info_provider<m4gfx::XINFOCLASS::XIC_CPU> cpuinfo_pro;
     m4gfx::typed_info_provider<m4gfx::XINFOCLASS::XIC_GPU> gpuinfo_pro;
     

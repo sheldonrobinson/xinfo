@@ -6,6 +6,7 @@
 #include "m4gfx/sis/predef.hpp"
 #include "m4gfx/sis/defines.h"
 #include "m4gfx/sis/info_provider.hpp"
+
 #include <stdlib.h>
 #include <string.h>
 

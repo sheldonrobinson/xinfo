@@ -10,6 +10,8 @@ cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 # Configure CMake environment
 #
 
+
+
 # Register general cmake commands
 include(cmake/Custom.cmake)
 
@@ -20,8 +22,7 @@ set_policy(CMP0063 NEW) # ENABLE CMP0063: Honor visibility properties for all ta
 set_policy(CMP0077 NEW) # ENABLE CMP0077: option() honors normal variables
 
 # Include cmake modules
-set(USRLOCAL_DIR "C:/Users/sheld/local")
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" "${USRLOCAL_DIR}/CpuFeatures/lib/cmake" "${USRLOCAL_DIR}/RapidJSON/cmake")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/lib/cmake")
 
 include(GenerateExportHeader)
 
