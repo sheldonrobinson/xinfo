@@ -1,3 +1,5 @@
+// Copyright 2019 Sheldon Robinson. All Rights Reserved.
+
 #ifndef XINFO_TYPES_H_
 #define XINFO_TYPES_H_
 

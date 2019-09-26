@@ -1,3 +1,5 @@
+// Copyright 2019 Sheldon Robinson. All Rights Reserved.
+
 #ifndef XIC_DEFINNES_H_
 #define XIC_DEFINNES_H_
 

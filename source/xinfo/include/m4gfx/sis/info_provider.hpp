@@ -1,3 +1,5 @@
+// Copyright 2019 Sheldon Robinson. All Rights Reserved.
+
 #ifndef INFO_PROVIDER_HPP
 #define INFO_PROVIDER_HPP
 

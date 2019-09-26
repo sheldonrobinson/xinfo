@@ -1,3 +1,5 @@
+// Copyright 2019 Sheldon Robinson. All Rights Reserved.
+
 #ifndef X_INFO_HPP
 #define X_INFO_HPP
 
@@ -9,6 +11,9 @@
 #include <string>
 
 #include <rapidjson/document.h>
+#include <rapidjson/writer.h>
+#include <rapidjson/stringbuffer.h>
+#include <rapidjson/pointer.h>
 
 namespace m4gfx
 {
@@ -44,33 +49,38 @@ public:
         return *this;
     }
 
-	const std::string& get_id() const { return _tag; }
+    XINFO_API  const std::string& get_id() const { return _tag; }
     
-	const m4gfx::XINFOCLASS get_type() const { return _type; }
+    XINFO_API  const m4gfx::XINFOCLASS get_type() const { return _type; }
+   
+    XINFO_API  void set_type(m4gfx::XINFOCLASS t ) { _type = t; }
     
-	void set_type(m4gfx::XINFOCLASS t ) { _type = t; }
-    
-	const void add_attribute(std::string attr){
+    XINFO_API  const void add_attribute(std::string attr){
         _attrs.insert(attr);
     }
 
-    const void add_attribute(const std::set<std::string>& attrs) {
+    XINFO_API  const void add_attribute(const std::set<std::string>& attrs) {
 	_attrs.insert(attrs.cbegin(), attrs.cend());
     }
     
-    const void insert_json(const rapidjson::Document& d);
+    XINFO_API   const void insert_json(const rapidjson::Document& d);
     
-    const void insert_info(const std::string info_path, const x_info&  data);
+    XINFO_API  const void insert_info(const std::string info_path, const x_info&  data);
 
-    const rapidjson::Document& get_data() const {
+    XINFO_API  const rapidjson::Document& get_data() const {
         return xis_info;
     }
 
-    const std::set<std::string> get_fields() const  {
+    XINFO_API  const std::set<std::string> get_fields() const  {
 	return _attrs;
     }
     
-    const std::string get_data_as_string() const;
+    XINFO_API  const std::string get_data_as_string() const {
+    	rapidjson::StringBuffer buffer;
+    	rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    	xis_info.Accept(writer);
+    	return std::string(buffer.GetString());
+    }
     
 private:
     m4gfx::XINFOCLASS _type;

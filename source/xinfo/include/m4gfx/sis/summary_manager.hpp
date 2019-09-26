@@ -1,3 +1,5 @@
+// Copyright 2019 Sheldon Robinson. All Rights Reserved.
+
 #ifndef SUMMARY_MANAGER_HPP
 #define SUMMARY_MANAGER_HPP
 
@@ -20,9 +22,11 @@ private:
     void setup();
 
 public:
-	static summary_manager* Instance();
-	static void Release();
-	const x_info& GetSystemInformationSummary(){
+    static summary_manager* Instance();
+
+    static void Release();
+
+    XINFO_API const x_info& GetSystemInformationSummary(){
         if(RunOnce){
             setup();
             RunOnce = false;

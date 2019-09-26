@@ -1,3 +1,5 @@
+// Copyright 2019 Sheldon Robinson. All Rights Reserved.
+
 #ifndef X_INFO_TYPEDEFS_HPP
 #define X_INFO_TYPEDEFS_HPP
 
